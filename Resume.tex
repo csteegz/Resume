@@ -25,7 +25,7 @@
     urlcolor=compliment,
     pdftitle={Resume - Colin Versteeg},
     pdfauthor={Colin Versteeg},
-pdfkeywords={Java, Computer Engineering, Engineering, Electrical Engineering, UMD, Maryland, Leadership, Reverse Engineering, IDA Pro, Python, Cyber, Cyber Security, Security, Malware Analysis, Malware, Git, Development, Software Development, REST, Big Data, IDA, }
+pdfkeywords={Java, Computer Engineering, Engineering, Electrical Engineering, UMD, Maryland, Leadership, Python, Python, Microsoft, C\#, .Net Core, Git, Development, Software Development, REST, Big Data, R, Data Analytics}
   }
 \usepackage{multicol}
 \usepackage{enumitem}
@@ -42,7 +42,6 @@ pdfkeywords={Java, Computer Engineering, Engineering, Electrical Engineering, UM
 \renewcommand{\arraystretch}{0.5}
 \setlength{\tabcolsep}{0in}
 \setlength\parindent{0pt}
-\usepackage{lipsum}
 \usepackage[sc,tiny]{titlesec}
 %\titleformat{\section}{\sffamily\scshape\footnotesize}{\thesection}{1em}{}
 \titleformat\section{\textcolor{mymagent}{\hrule}\sffamily\sc}{\thesection}{1em}{}
@@ -50,9 +49,8 @@ pdfkeywords={Java, Computer Engineering, Engineering, Electrical Engineering, UM
 \newcommand{\myheader}{
 \begin{center}
     \href{http://www.linkedin.com/pub/colin-versteeg/5b/26b/1b8}{{\huge\bf\sffamily Colin Versteeg}} \\
-   \sffamily 9816 Old Spring Road \textbullet \, Kensington, MD 20895 \\ 
-\href{callto:3015185620}{\sffamily(301) 518-5620} \textbullet \, \href{mailto:cverstee@umd.edu}{\sffamily cverstee@umd.edu} 
-%% \\ \textbf{TS with Full Scope Polygraph}
+   \sffamily 1408 E. Union St. Apt 403 \textbullet \, Seattle, WA 98122 \\ 
+\href{callto:3015185620}{\sffamily(301) 518-5620} \textbullet \, \href{mailto:cverstee@gmail.com}{\sffamily cverstee@gmail.com} 
 \end{center}
 }
 \newcommand{\resheading}[5]{
@@ -71,7 +69,7 @@ pdfkeywords={Java, Computer Engineering, Engineering, Electrical Engineering, UM
 \myheader
 \vspace{-.3in}
 \section*{Education}
-\resheading{{University of Maryland}}{Expected Graduation: May 2016}{Computer Engineering; GPA: 3.35}{College Park, MD}{}\footnotesize
+\resheading{{University of Maryland}}{May 2016}{Computer Engineering; GPA: 3.3}{College Park, MD}{}\footnotesize
  \begin{resumeitemize}
 	\vspace{-.2in}
             \item{\href{http://www.scholars.umd.edu/programs/pl}{College Park Scholars: Public Leadership} --- Citation Recieved: October 2014}
@@ -81,13 +79,19 @@ pdfkeywords={Java, Computer Engineering, Engineering, Electrical Engineering, UM
 
 \vspace{\myrespresectionskip}
 \section*{Professional Experience}
+\resheading{{Microsoft}}{Aug. 2015}{\emph{Software Engineer}}{Redmond, WA}{}
+{ \footnotesize
+\vspace{-.2in}
+      \begin{resumeitemize}
+	\item{Developed enterprise .NET Core platform to operationalize data analytics} 
+          \end{resumeitemize}
+}
 \resheading{{Booz Allen Hamilton}}{June 2015 \-- Aug. 2015}{\emph{Malware Intern}}{Annapolis Junction, MD}{}
 { \footnotesize
 \vspace{-.2in}
       \begin{resumeitemize}
 	\item{Developed web-based software prototype to automate portions of malware analysis using Apache Storm, Java and Python to support 20+ consultants serving government and commercial clients}
 	\item{Developed for the full stack including Tomcat, Accumulo and Guice in a four intern agile team to complete the initial scope of the project and expand the scope by 25\%}
-	\item{Trained in software reverse engineering using static tools as well as dynamic tools and finished first of 60+ interns in an internal CTF coding competition}
           \end{resumeitemize}
 }
 \vspace{\jobskip}
@@ -97,7 +101,6 @@ pdfkeywords={Java, Computer Engineering, Engineering, Electrical Engineering, UM
       \begin{resumeitemize}
 	 \item{Selected in a competitive application process to research non-linear metrics to assess image quality in {X-ray CT} for regulating advances in iterative reconstruction}
             \item{Developed a public-domain software package for easy performance of LROC and EFROC reader studies in Python with NumPy and \textsc{Matlab} to assist industry in preparing 510k and premarket review regulatory submissions}
-	 \item{Collaborated with and presented to professionals, scientists and engineers in government, industry and academia}
           \end{resumeitemize}
    }
 \vspace{\jobskip}
@@ -106,7 +109,6 @@ pdfkeywords={Java, Computer Engineering, Engineering, Electrical Engineering, UM
 \vspace{\resumeitemizeskip}
       \begin{resumeitemize}
 	 \item{Researched methods to assess artifact reduction in {X-ray CT} for regulating advances in medical technology}
-	\item{Prepared technical report on research into artifact reduction and presented to regulators and researchers to provide background information for 3 510k regulatory reviews.} 
           \end{resumeitemize}
    }
 \vspace{\myrespresectionskip}
@@ -130,10 +132,9 @@ pdfkeywords={Java, Computer Engineering, Engineering, Electrical Engineering, UM
 \vspace{\myrespresectionskip}
 \section*{Skills}
 \begin{skillsitemize}
-\resitem{\textbf{Programming Languages}: Java, Python, X86 Assembly, \textsc{Matlab}, C,  Ruby, JavaScript}
+\resitem{\textbf{Programming Languages}: Python, C$^\sharp$, Java, C, X86 Assembly, R}
 \resitem{\textbf{Markup/Description Languages}: \LaTeX, HTML/CSS, Markdown, XML/XST}
-\resitem{\textbf{Applications}: IDA Pro, VirtualBox, VMWare, GDB, Olly Debug, Git, Autodesk Inventor}
-\resitem{\textbf{Platforms}: Windows, Centos/Ubuntu/Kali Linux, Apache Storm, Apache Hadoop, Bash Scripting}
+\resitem{\textbf{Platforms}: Windows, Linux, .NET Core, Apache Storm, Apache Hadoop, Bash Scripting}
 \end{skillsitemize}
 \end{document}
 
