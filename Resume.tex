@@ -1,0 +1,139 @@
+% !TeX program = LuaLaTeX
+\documentclass[letterpaper,12pt]{article}
+\def \myrespresectionskip {-.25in}
+\def \resumeitemizeskip{0in}
+\def \jobskip{.075in}
+\usepackage[inline]{enumitem}
+\usepackage{microtype}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{comment}
+\usepackage[letterpaper,top=.25in,left=.75in,right=.75in,bottom=.25in]{geometry}
+\usepackage[usenames,dvipsnames]{color}
+  \definecolor{mygreylink}{RGB}{255,184,115}
+  \definecolor{mygrey}{RGB}{14,43,3}
+\definecolor{mymagent}{RGB}{72,4,23}
+\definecolor{faded}{RGB}{66,82,121}
+%\definecolor{mygrey}{RGB}{47,34,3}
+  \definecolor{compliment}{RGB}{4,23,72}
+\usepackage[pdftex]{hyperref}
+  \hypersetup{
+    colorlinks,
+    citecolor=compliment,
+    filecolor=compliment,
+    linkcolor=compliment,
+    urlcolor=compliment,
+    pdftitle={Resume - Colin Versteeg},
+    pdfauthor={Colin Versteeg},
+pdfkeywords={Java, Computer Engineering, Engineering, Electrical Engineering, UMD, Maryland, Leadership, Reverse Engineering, IDA Pro, Python, Cyber, Cyber Security, Security, Malware Analysis, Malware, Git, Development, Software Development, REST, Big Data, IDA, }
+  }
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{enumitem}
+\newlist{resumeitemize}{itemize}{1}
+\setlist[resumeitemize]{label=\textbullet,labelindent=-.25in,leftmargin=0pt,labelsep=.125in,itemsep=0em}
+\newlist{skillsitemize}{itemize}{1}
+\setlist[skillsitemize]{label={},labelindent=-.25in,leftmargin=0pt,labelsep=.125in,itemsep=0em}
+\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\setmainfont{Minion Pro}
+  \color{compliment}
+\setsansfont{Myriad Pro}
+\renewcommand{\arraystretch}{0.5}
+\setlength{\tabcolsep}{0in}
+\setlength\parindent{0pt}
+\usepackage{lipsum}
+\usepackage[sc,tiny]{titlesec}
+%\titleformat{\section}{\sffamily\scshape\footnotesize}{\thesection}{1em}{}
+\titleformat\section{\textcolor{mymagent}{\hrule}\sffamily\sc}{\thesection}{1em}{}
+
+\newcommand{\myheader}{
+\begin{center}
+    \href{http://www.linkedin.com/pub/colin-versteeg/5b/26b/1b8}{{\huge\bf\sffamily Colin Versteeg}} \\
+   \sffamily 9816 Old Spring Road \textbullet \, Kensington, MD 20895 \\ 
+\href{callto:3015185620}{\sffamily(301) 518-5620} \textbullet \, \href{mailto:cverstee@umd.edu}{\sffamily cverstee@umd.edu} 
+%% \\ \textbf{TS with Full Scope Polygraph}
+\end{center}
+}
+\newcommand{\resheading}[5]{
+\normalsize{\textbf{#1}}\hfill{\rmfamily\normalsize\textcolor{faded}{#2}} \\
+\normalsize{#3}\hfill{\textcolor{faded}{\normalsize#4}}\\
+\normalsize{#5}
+\normalsize
+}
+\pagestyle{empty}
+\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+\title{Resume - Colin Versteeg}
+\author{Colin Versteeg}
+
+\begin{document}
+
+\myheader
+\vspace{-.3in}
+\section*{Education}
+\resheading{{University of Maryland}}{Expected Graduation: May 2016}{Computer Engineering; GPA: 3.35}{College Park, MD}{}\footnotesize
+ \begin{resumeitemize}
+	\vspace{-.2in}
+            \item{\href{http://www.scholars.umd.edu/programs/pl}{College Park Scholars: Public Leadership} --- Citation Recieved: October 2014}
+\item{Dean's List}
+	%\hfill 2012 \-- 2014
+          \end{resumeitemize}
+
+\vspace{\myrespresectionskip}
+\section*{Professional Experience}
+\resheading{{Booz Allen Hamilton}}{June 2015 \-- Aug. 2015}{\emph{Malware Intern}}{Annapolis Junction, MD}{}
+{ \footnotesize
+\vspace{-.2in}
+      \begin{resumeitemize}
+	\item{Developed web-based software prototype to automate portions of malware analysis using Apache Storm, Java and Python to support 20+ consultants serving government and commercial clients}
+	\item{Developed for the full stack including Tomcat, Accumulo and Guice in a four intern agile team to complete the initial scope of the project and expand the scope by 25\%}
+	\item{Trained in software reverse engineering using static tools as well as dynamic tools and finished first of 60+ interns in an internal CTF coding competition}
+          \end{resumeitemize}
+}
+\vspace{\jobskip}
+\resheading{{Food and Drug Administration}}{May 2014 \-- Aug. 2014; Jan. 2015}{{Center for Devices and Radiological Health}}{Silver Spring, MD}{\emph{Mathematics and Statistics Trainee}} 
+   { \footnotesize
+\vspace{\resumeitemizeskip}
+      \begin{resumeitemize}
+	 \item{Selected in a competitive application process to research non-linear metrics to assess image quality in {X-ray CT} for regulating advances in iterative reconstruction}
+            \item{Developed a public-domain software package for easy performance of LROC and EFROC reader studies in Python with NumPy and \textsc{Matlab} to assist industry in preparing 510k and premarket review regulatory submissions}
+	 \item{Collaborated with and presented to professionals, scientists and engineers in government, industry and academia}
+          \end{resumeitemize}
+   }
+\vspace{\jobskip}
+\resheading{{Food and Drug Administration}}{May 2013 \-- Aug. 2013}{{Center for Devices and Radiological Health}}{Silver Spring, MD}{\emph{Volunteer Research Intern}}
+   { \footnotesize
+\vspace{\resumeitemizeskip}
+      \begin{resumeitemize}
+	 \item{Researched methods to assess artifact reduction in {X-ray CT} for regulating advances in medical technology}
+	\item{Prepared technical report on research into artifact reduction and presented to regulators and researchers to provide background information for 3 510k regulatory reviews.} 
+          \end{resumeitemize}
+   }
+\vspace{\myrespresectionskip}
+\section*{Leadership Experience}
+\resheading{{University of Maryland Men's Ultimate}}{Aug. 2014 \-- May. 2015}{\emph{Co-Captain, B Team}}{College Park, MD}{}
+   { \footnotesize
+\vspace{-.2in}
+      \begin{resumeitemize}
+	\item{Collaborated with two co-captains to lead team of 50+ players in 8 hours of practice a week and monthly competitions to an undefeated season}
+	\item{Managed team budget of over \$5000 for tournament fees and apparel orders}
+          \end{resumeitemize}
+}
+\vspace{\jobskip}
+\resheading{{University of Maryland}}{Sep. 2014 \-- Dec. 2014}{{Department of Electrical and Computer Engineering}}{College Park, MD}{\emph{Undergraduate Teaching Fellow, Engineering Ethics}}
+   { \footnotesize
+\vspace{\resumeitemizeskip}
+      \begin{resumeitemize}
+	\item{Led discussion section of 12 students and graded student work to teach importance of engineering ethics and professionalism.}
+          \end{resumeitemize}
+}
+\vspace{\myrespresectionskip}
+\section*{Skills}
+\begin{skillsitemize}
+\resitem{\textbf{Programming Languages}: Java, Python, X86 Assembly, \textsc{Matlab}, C,  Ruby, JavaScript}
+\resitem{\textbf{Markup/Description Languages}: \LaTeX, HTML/CSS, Markdown, XML/XST}
+\resitem{\textbf{Applications}: IDA Pro, VirtualBox, VMWare, GDB, Olly Debug, Git, Autodesk Inventor}
+\resitem{\textbf{Platforms}: Windows, Centos/Ubuntu/Kali Linux, Apache Storm, Apache Hadoop, Bash Scripting}
+\end{skillsitemize}
+\end{document}
+
