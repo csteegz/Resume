@@ -1,14 +1,13 @@
 % !TeX program = LuaLaTeX
-\documentclass[letterpaper,12pt]{article}
-\def \myrespresectionskip {-.25in}
-\def \resumeitemizeskip{0in}
-\def \jobskip{.075in}
+\documentclass[letterpaper,11pt]{article}
+\def \resumeitemizeskip{0em}
+\def \jobskip{.5em}
 \usepackage[inline]{enumitem}
 \usepackage{microtype}
 \usepackage{multirow}
 \usepackage{setspace}
 \usepackage{comment}
-\usepackage[letterpaper,top=.25in,left=.75in,right=.75in,bottom=.25in]{geometry}
+\usepackage[letterpaper,top=.5in,left=.75in,right=.75in,bottom=.5in]{geometry}
 \usepackage[usenames,dvipsnames]{color}
   \definecolor{mygreylink}{RGB}{255,184,115}
   \definecolor{mygrey}{RGB}{14,43,3}
@@ -25,7 +24,7 @@
     urlcolor=compliment,
     pdftitle={Resume - Colin Versteeg},
     pdfauthor={Colin Versteeg},
-pdfkeywords={Java, Computer Engineering, Engineering, Electrical Engineering, UMD, Maryland, Leadership, Python, Python, Microsoft, C\#, .Net Core, Git, Development, Software Development, REST, Big Data, R, Data Analytics}
+pdfkeywords={CSharp, Machine Learning, TensorFlow, FPGA, Computer Engineering, Engineering, Electrical Engineering, UMD, Maryland, Leadership, Python, SciKitLearn, Microsoft, C\#, .Net Core, Git, Development, Software Development, REST, Big Data, R, Data Analytics, Tensorflow, Deep Learning}
   }
 \usepackage{multicol}
 \usepackage{enumitem}
@@ -33,105 +32,107 @@ pdfkeywords={Java, Computer Engineering, Engineering, Electrical Engineering, UM
 \newlist{resumeitemize}{itemize}{1}
 \setlist[resumeitemize]{label=\textbullet,labelindent=-.25in,leftmargin=0pt,labelsep=.125in,itemsep=0em}
 \newlist{skillsitemize}{itemize}{1}
-\setlist[skillsitemize]{label={},labelindent=-.25in,leftmargin=0pt,labelsep=.125in,itemsep=0em}
+\setlist[skillsitemize]{label={},labelindent=-.25in,leftmargin=0pt,labelsep=.125in,itemsep=-2pt}
 \usepackage[T1]{fontenc}
 \usepackage{fontspec}
-\setmainfont{Minion Pro}
+\setmainfont{Georgia}
   \color{compliment}
-\setsansfont{Myriad Pro}
+\setsansfont{Playfair Display}
 \renewcommand{\arraystretch}{0.5}
 \setlength{\tabcolsep}{0in}
 \setlength\parindent{0pt}
 \usepackage[sc,tiny]{titlesec}
 %\titleformat{\section}{\sffamily\scshape\footnotesize}{\thesection}{1em}{}
-\titleformat\section{\textcolor{mymagent}{\hrule}\sffamily\sc}{\thesection}{1em}{}
+\titleformat\section[block]{\vspace{-2.5em}\textcolor{mymagent}{\hrule}\vspace{1pt}\normalsize\sffamily\scshape}{\thesection}{0pt}{\vspace{-.75em}}[\vspace{0em}]
 
 \newcommand{\myheader}{
 \begin{center}
     \href{http://www.linkedin.com/pub/colin-versteeg/5b/26b/1b8}{{\huge\bf\sffamily Colin Versteeg}} \\
-   \sffamily 1408 E. Union St. Apt 403 \textbullet \, Seattle, WA 98122 \\ 
-\href{callto:3015185620}{\sffamily(301) 518-5620} \textbullet \, \href{mailto:cverstee@gmail.com}{\sffamily cverstee@gmail.com} 
+   \rmfamily 1408 E. Union St. Apt 403 \textbullet \, Seattle, WA 98122 \\ 
+\href{callto:3015185620}{\rmfamily(301) 518-5620} \textbullet \, \href{mailto:cverstee@gmail.com}{\rmfamily cverstee@gmail.com}
+\vspace{1em}
 \end{center}
 }
-\newcommand{\resheading}[5]{
-\large{\textbf{#1}}\hfill{\rmfamily\normalsize\textcolor{faded}{#2}} \\
+\newcommand{\resentry}[6]{
+\large{\sffamily\textbf{#1}}\hfill{\rmfamily\normalsize\textcolor{faded}{#2}} \\
 \normalsize{#3}\hfill{\textcolor{faded}{\normalsize#4}}\\
 \normalsize{#5}
-\normalsize
+\footnotesize{#6}
 }
 \pagestyle{empty}
-\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+\newcommand{\resitem}[1]{\normalsize{\item #1}}
 \title{Resume - Colin Versteeg}
 \author{Colin Versteeg}
 
 \begin{document}
-
 \myheader
-\vspace{-.3in}
-
 \section*{Professional Experience}
-\resheading{{Microsoft}}{Aug. 2016 \--}{{AI and Research}}{Redmond, WA}{\emph{Software Engineer}}
-{ \footnotesize
-\vspace{\resumeitemizeskip}
+\resentry{{Microsoft}}{Nov. 2017 \--}{Azure Machine Learning Hardware Accelerated Models}{Redmond, WA}{\emph{Software Engineer}}
+{ 
       \begin{resumeitemize}
-	\item{Developed Operationalization software for Machine Learning in Microsoft Machine Learning Server and SQL Server}
-	 \item{Designed and implemented support for Python in Microsoft Machine Learning Server Operationalization}
-          \end{resumeitemize}
-}
-\resheading{{Booz Allen Hamilton}}{June 2015 \-- Aug. 2015}{\emph{Malware Intern}}{Annapolis Junction, MD}{}
-{ \footnotesize
-\vspace{-.2in}
-      \begin{resumeitemize}
-	\item{Developed web-based software prototype to automate portions of malware analysis using Apache Storm, Java and Python to support 20+ consultants serving government and commercial clients}
-	\item{Developed for the full stack in a four intern team to complete the initial scope of the project and expand the scope by 25\%}
+	 \item{Launched an industry leading service for acceleration of Neural Networks on Field Programmable Gate Arrays (FPGAs), delivering execution 50 times faster then CPUs, and less than 25\% of the cost of GPUs.}	
+	 \item{Developed high performance C++ software to operationalize Resnet50 with sub-10ms overhead.}
+	 \item{Integrated the Microsoft internal monitoring system with a gRPC/Tensorflow Serving stack to monitor 800 Windows servers.}	
           \end{resumeitemize}
 }
 \vspace{\jobskip}
-\resheading{{Food and Drug Administration}}{May 2014 \-- Aug. 2014; Jan. 2015}{{Center for Devices and Radiological Health}}{Silver Spring, MD}{\emph{Mathematics and Statistics Trainee}} 
-   { \footnotesize
-\vspace{\resumeitemizeskip}
+\resentry{{Microsoft}}{Aug. 2016 \-- Nov. 2017}{Machine Learning Server}{Redmond, WA}{\emph{Software Engineer}}
+{ 
+      \begin{resumeitemize}
+	\item {Prototyped initial support for Python in Microsoft R Server as part of a 4-person virtual team, leading to the launch of Microsoft Machine Learning Server.}
+	 \item{Designed and implemented support for Python operationalization in Microsoft Machine Learning Server.}	
+          \end{resumeitemize}
+}
+\vspace{\jobskip}
+\resentry{{Booz Allen Hamilton}}{June 2015 \-- Aug. 2015}{\emph{Malware Analysis Intern}}{Annapolis Junction, MD}{\vspace{-1em}}
+{ 
+      \begin{resumeitemize}
+	\item{Developed a software prototype to automate creation of a data pipeline for malware analysis using Apache Storm, Java and Python to support 20+ consultants serving government and commercial clients}
+	\item{Designed and developed data extraction components in a four intern team to expand the initial scope of the project by 25\%}
+          \end{resumeitemize}
+}
+\vspace{\jobskip}
+\resentry{{Food and Drug Administration}}{May 2014 \-- Aug. 2014; Jan. 2015}{\emph{Mathematics and Statistics Trainee}}{Silver Spring, MD}{\vspace{-1em}}
+   { 
       \begin{resumeitemize}
 	 \item{Selected in a competitive application process to research non-linear metrics to assess image quality in {X-ray CT} for regulating machine learning advances in iterative reconstruction}
-            \item{Developed a public-domain software package for easy performance of LROC and EFROC reader studies in Python with NumPy and \textsc{Matlab} to assist industry in evaluating performance of non-linear statistical models}
+            \item{Developed a public-domain software package for easy performance of LROC and EFROC reader studies in Python with NumPy and \textsc{Matlab} to assist industry in evaluating performance of iterative reconstruction algorithms}
+	 \item{Awarded Oak Ridge Institute for Science and Education fellowship for undergraduate research to fund completion of work.}
           \end{resumeitemize}
    }
 \vspace{\jobskip}
-\resheading{{Food and Drug Administration}}{May 2013 \-- Aug. 2013}{{Center for Devices and Radiological Health}}{Silver Spring, MD}{\emph{Volunteer Research Intern}}
-   { \footnotesize
-\vspace{\resumeitemizeskip}
+\resentry{{Food and Drug Administration}}{May 2013 \-- Aug. 2013}{\emph{Volunteer Research Intern}}{Silver Spring, MD}{\vspace{-1em}}
+   { 
+\begin{resumeitemize}
+\item{Researched methods to evaluate perfomance of iterative reconstruction algorithms for reducing artifacts in {X-ray CT}.}
+\end{resumeitemize}
    }
-\vspace{\myrespresectionskip}
 \section*{Education}
-\resheading{{University of Maryland}}{May 2016}{Computer Engineering; GPA: 3.3}{College Park, MD}{}\footnotesize
+\resentry{{University of Maryland}}{May 2016}{B.S. \emph{Computer Engineering}; GPA: 3.3}{College Park, MD}{\vspace{-1em}}{\footnotesize
  \begin{resumeitemize}
-	\vspace{-.2in}
-            \item{\href{http://www.scholars.umd.edu/programs/pl}{College Park Scholars: Public Leadership} --- Citation Recieved: October 2014}
-
+            \item{\href{http://www.scholars.umd.edu/programs/pl}{College Park Scholars Public Leadership honors program} --- Citation Recieved: October 2014}
           \end{resumeitemize}
-
-\vspace{\myrespresectionskip}
+}
 \section*{Leadership Experience}
-\resheading{{University of Maryland Men's Ultimate}}{Aug. 2014 \-- May. 2016}{\emph{Co-Captain, B Team}}{College Park, MD}{}
-   { \footnotesize
-\vspace{-.2in}
+\resentry{{University of Maryland Men's Ultimate}}{Aug. 2014 \-- May 2016}{\emph{Co-Captain, B Team}}{College Park, MD}{\vspace{-1em}}
+   { 
       \begin{resumeitemize}
-	\item{Collaborated with two co-captains to lead team of 50+ players in 8 hours of practice a week and monthly competitions to an undefeated season and regional championship.}
+	\item{Collaborated with two co-captains to lead team of 50+ players in 8 hours of weekly practice and monthly competitions.}
+	\item{Led team to an undefeated season and regional championship.}
 	\item{Managed team budget of over \$5000 for tournament fees and apparel orders}
           \end{resumeitemize}
 }
 \vspace{\jobskip}
-\resheading{{University of Maryland}}{Sep. 2014 \-- Dec. 2014}{{Department of Electrical and Computer Engineering}}{College Park, MD}{\emph{Undergraduate Teaching Fellow, Engineering Ethics}}
-   { \footnotesize
-\vspace{\resumeitemizeskip}
+\resentry{{University of Maryland}}{Aug. 2014 \-- Dec. 2014}{\emph{Undergraduate Teaching Fellow}}{College Park, MD}{\vspace{-1em}}
+   { 
       \begin{resumeitemize}
-	\item{Led discussion section of 12 students and graded student work to teach importance of engineering ethics and professionalism.}
+	\item{Led weekly discussion section of 12 students and graded student work to teach engineering ethics and professionalism.}
           \end{resumeitemize}
 }
-\vspace{\myrespresectionskip}
 \section*{Skills}
 \begin{skillsitemize} 
-\resitem{\textbf{Programming Languages}: Python, C$^\sharp$, Java, R, F$^\sharp$}
-\resitem{\textbf{Platforms}: Windows, Linux, .NET Core, Apache Storm, Jupyter, Bash Scripting}
+\resitem{\textbf{Programming Languages}: C++, Python, C$^\sharp$, R, F$^\sharp$, Java}
+\resitem{\textbf{Platforms/Technologies}: Windows, Linux, .NET Core, gRPC, TensorFlow, Jupyter}
 \end{skillsitemize}
 \end{document}
 
