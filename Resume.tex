@@ -1,13 +1,13 @@
 % !TeX program = LuaLaTeX
 \documentclass[letterpaper,11pt]{article}
 \def \resumeitemizeskip{0em}
-\def \jobskip{.5em}
+\def \jobskip{1em}
 \usepackage[inline]{enumitem}
 \usepackage{microtype}
 \usepackage{multirow}
 \usepackage{setspace}
 \usepackage{comment}
-\usepackage[letterpaper,top=.5in,left=.75in,right=.75in,bottom=.5in]{geometry}
+\usepackage[letterpaper,top=.75in,left=.8in,right=.8in,bottom=.75in]{geometry}
 \usepackage[usenames,dvipsnames]{color}
   \definecolor{mygreylink}{RGB}{255,184,115}
   \definecolor{mygrey}{RGB}{14,43,3}
@@ -30,11 +30,14 @@ pdfkeywords={CSharp, Machine Learning, TensorFlow, FPGA, Computer Engineering, E
 \usepackage{enumitem}
 \usepackage{enumitem}
 \newlist{resumeitemize}{itemize}{1}
-\setlist[resumeitemize]{label=\textbullet,labelindent=-.25in,leftmargin=0pt,labelsep=.125in,itemsep=0em}
+\setlist[resumeitemize]{label=\textbullet,labelindent=-.25in,leftmargin=0pt,labelsep=.125in,itemsep=0em,font=\large}
 \newlist{skillsitemize}{itemize}{1}
-\setlist[skillsitemize]{label={},labelindent=-.25in,leftmargin=0pt,labelsep=.125in,itemsep=-2pt}
+\setlist[skillsitemize]{label={},labelindent=-.25in,leftmargin=0pt,labelsep=.125in}
 \usepackage[T1]{fontenc}
+\usepackage{xparse}
+
 \usepackage{fontspec}
+%todo maybe buy miller https://www.typewolf.com/site-of-the-day/fonts/miller
 \setmainfont{Georgia}
   \color{compliment}
 \setsansfont{Playfair Display}
@@ -43,16 +46,9 @@ pdfkeywords={CSharp, Machine Learning, TensorFlow, FPGA, Computer Engineering, E
 \setlength\parindent{0pt}
 \usepackage[sc,tiny]{titlesec}
 %\titleformat{\section}{\sffamily\scshape\footnotesize}{\thesection}{1em}{}
-\titleformat\section[block]{\vspace{-2.5em}\textcolor{mymagent}{\hrule}\vspace{1pt}\normalsize\sffamily\scshape}{\thesection}{0pt}{\vspace{-.75em}}[\vspace{0em}]
+\titleformat\section[block]{\vspace{-1.5em}\textcolor{mymagent}{\hrule}\vspace{1pt}\normalsize\sffamily\scshape}{\thesection}{0pt}{\vspace{-.5em}}[\vspace{0em}]
 
-\newcommand{\myheader}{
-\begin{center}
-    \href{http://www.linkedin.com/pub/colin-versteeg/5b/26b/1b8}{{\huge\bf\sffamily Colin Versteeg}} \\
-   \rmfamily 1408 E. Union St. Apt 403 \textbullet \, Seattle, WA 98122 \\ 
-\href{callto:3015185620}{\rmfamily(301) 518-5620} \textbullet \, \href{mailto:cverstee@gmail.com}{\rmfamily cverstee@gmail.com}
-\vspace{1em}
-\end{center}
-}
+
 \newcommand{\resentry}[6]{
 \large{\sffamily\textbf{#1}}\hfill{\rmfamily\normalsize\textcolor{faded}{#2}} \\
 \normalsize{#3}\hfill{\textcolor{faded}{\normalsize#4}}\\
@@ -63,31 +59,50 @@ pdfkeywords={CSharp, Machine Learning, TensorFlow, FPGA, Computer Engineering, E
 \newcommand{\resitem}[1]{\normalsize{\item #1}}
 \title{Resume - Colin Versteeg}
 \author{Colin Versteeg}
+\directlua{
+if os.getenv("ADDRESS") \string~= nil then 
+	token.set_macro("PRINTADDRESS","true","global")
+end
+if os.getenv("PHONE") \string~= nil then 
+	token.set_macro("PRINTPHONE","true","global")
+end
+}
+
 
 \begin{document}
-\myheader
+\begin{center}
+    \href{http://www.linkedin.com/pub/colin-versteeg/5b/26b/1b8}{{\huge\bf\sffamily Colin Versteeg}} \\
+\ifdefined\PRINTADDRESS   
+{\rmfamily \directlua{tex.print(-2,os.getenv("ADDRESS"))}} \textbullet \, Seattle, WA 98122 \\ 
+\fi
+\ifdefined\PRINTPHONE
+{\rmfamily \directlua{tex.print(-2,os.getenv("PHONE"))}} \textbullet \,
+\fi
+ {\rmfamily \directlua{tex.print(-2,os.getenv("EMAIL"))}}
+\end{center}
 \section*{Professional Experience}
-\resentry{{Microsoft}}{Nov. 2017 \--}{Azure Machine Learning Hardware Accelerated Models}{Redmond, WA}{\emph{Software Engineer}}
+\resentry{{Microsoft}}{Nov. 2017 \--}{AI Inferencing and Infrastructure}{Redmond, WA}{\emph{Software Engineer}}
 { 
       \begin{resumeitemize}
-	 \item{Launched an industry leading service for acceleration of Neural Networks on Field Programmable Gate Arrays (FPGAs), delivering execution 50 times faster then CPUs, and less than 25\% of the cost of GPUs.}	
-	 \item{Developed high performance C++ software to operationalize Resnet50 with sub-10ms overhead.}
-	 \item{Integrated the Microsoft internal monitoring system with a gRPC/Tensorflow Serving stack to monitor 800 Windows servers.}	
+	 \item{Launched Azure Machine Learning Hardware Accelerated Models service, based on research from Microsoft Research, for acceleration of Neural Networks on Field Programmable Gate Arrays (FPGAs), delivering execution 50 times faster then CPUs, at less than a quarter of the cost of GPUs}	
+	\item{Developed high performance C++ and C\# gRPC servers to operationalize Tensorflow and ONNX graphs into a high performance DNN inference service on Kubernetes with sub-5ms overhead}
+	\item{Developed Python software to identify portions of Tensorflow graphs which can be accelerated, operationalize Keras, ONNX and Tensorflow models and invoke remote inferencing}
+          \item{Grew team from 2 engineers to 8 to move product from initial proof of concept to general availability}
           \end{resumeitemize}
 }
 \vspace{\jobskip}
 \resentry{{Microsoft}}{Aug. 2016 \-- Nov. 2017}{Machine Learning Server}{Redmond, WA}{\emph{Software Engineer}}
 { 
       \begin{resumeitemize}
-	\item {Prototyped initial support for Python in Microsoft R Server as part of a 4-person virtual team, leading to the launch of Microsoft Machine Learning Server.}
-	 \item{Designed and implemented support for Python operationalization in Microsoft Machine Learning Server.}	
+	\item {Prototyped initial support for Python in Microsoft R Server and Microsoft SQL Server as part of a 4-person virtual team, leading to the launch of Microsoft Machine Learning Server and SQL Server Machine Learning Services}
+	 \item{Designed and implemented support for Python machine learning model operationalization in Microsoft Machine Learning Server}	
           \end{resumeitemize}
 }
 \vspace{\jobskip}
 \resentry{{Booz Allen Hamilton}}{June 2015 \-- Aug. 2015}{\emph{Malware Analysis Intern}}{Annapolis Junction, MD}{\vspace{-1em}}
 { 
       \begin{resumeitemize}
-	\item{Developed a software prototype to automate creation of a data pipeline for malware analysis using Apache Storm, Java and Python to support 20+ consultants serving government and commercial clients}
+	\item{Developed a software prototype to automate creation of a streaming data pipeline for malware analysis using Apache Storm, Elasticsearch, Java and Python to support 20+ consultants serving government and commercial clients}
 	\item{Designed and developed data extraction components in a four intern team to expand the initial scope of the project by 25\%}
           \end{resumeitemize}
 }
@@ -95,44 +110,30 @@ pdfkeywords={CSharp, Machine Learning, TensorFlow, FPGA, Computer Engineering, E
 \resentry{{Food and Drug Administration}}{May 2014 \-- Aug. 2014; Jan. 2015}{\emph{Mathematics and Statistics Trainee}}{Silver Spring, MD}{\vspace{-1em}}
    { 
       \begin{resumeitemize}
-	 \item{Selected in a competitive application process to research non-linear metrics to assess image quality in {X-ray CT} for regulating machine learning advances in iterative reconstruction}
-            \item{Developed a public-domain software package for easy performance of LROC and EFROC reader studies in Python with NumPy and \textsc{Matlab} to assist industry in evaluating performance of iterative reconstruction algorithms}
-	 \item{Awarded Oak Ridge Institute for Science and Education fellowship for undergraduate research to fund completion of work.}
+	 \item{Researched non-linear metrics to assess image quality in {X-ray CT} for regulating advances in iterative reconstruction algorithms}
+            \item{Developed a public-domain software package for streamlined generation of advanced algorithm assesment studies in Python with NumPy and \textsc{Matlab} to assist industry in evaluating performance of iterative reconstruction algorithms}
+	 \item{Awarded Oak Ridge Institute for Science and Education fellowship for undergraduate research}
           \end{resumeitemize}
    }
 \vspace{\jobskip}
-\resentry{{Food and Drug Administration}}{May 2013 \-- Aug. 2013}{\emph{Volunteer Research Intern}}{Silver Spring, MD}{\vspace{-1em}}
+\resentry{{Food and Drug Administration}}{May 2013 \-- Aug. 2013}{\emph{Research Intern}}{Silver Spring, MD}{\vspace{-1em}}
    { 
 \begin{resumeitemize}
-\item{Researched methods to evaluate perfomance of iterative reconstruction algorithms for reducing artifacts in {X-ray CT}.}
+\item{Researched methods to evaluate performance of machine learning iterative reconstruction algorithms for reducing artifacts in {X-ray CT} scans.}
 \end{resumeitemize}
    }
 \section*{Education}
-\resentry{{University of Maryland}}{May 2016}{B.S. \emph{Computer Engineering}; GPA: 3.3}{College Park, MD}{\vspace{-1em}}{\footnotesize
+\resentry{{University of Maryland}}{May 2016}{B.S. \emph{Computer Engineering}}{College Park, MD}{\vspace{-1em}}{\footnotesize
  \begin{resumeitemize}
-            \item{\href{http://www.scholars.umd.edu/programs/pl}{College Park Scholars Public Leadership honors program} --- Citation Recieved: October 2014}
-          \end{resumeitemize}
-}
-\section*{Leadership Experience}
-\resentry{{University of Maryland Men's Ultimate}}{Aug. 2014 \-- May 2016}{\emph{Co-Captain, B Team}}{College Park, MD}{\vspace{-1em}}
-   { 
-      \begin{resumeitemize}
-	\item{Collaborated with two co-captains to lead team of 50+ players in 8 hours of weekly practice and monthly competitions.}
-	\item{Led team to an undefeated season and regional championship.}
-	\item{Managed team budget of over \$5000 for tournament fees and apparel orders}
-          \end{resumeitemize}
-}
-\vspace{\jobskip}
-\resentry{{University of Maryland}}{Aug. 2014 \-- Dec. 2014}{\emph{Undergraduate Teaching Fellow}}{College Park, MD}{\vspace{-1em}}
-   { 
-      \begin{resumeitemize}
-	\item{Led weekly discussion section of 12 students and graded student work to teach engineering ethics and professionalism.}
+            \item{{College Park Scholars Public Leadership honors program}}
+	 \item{Men's Ultimate Team Co-Captain}
+	 \item{Undergraduate Teaching Fellow, Engineering Ethics and Professionalism}
           \end{resumeitemize}
 }
 \section*{Skills}
 \begin{skillsitemize} 
-\resitem{\textbf{Programming Languages}: C++, Python, C$^\sharp$, R, F$^\sharp$, Java}
-\resitem{\textbf{Platforms/Technologies}: Windows, Linux, .NET Core, gRPC, TensorFlow, Jupyter}
+\resitem{\textbf{Programming Languages}: Python, C$^\sharp$, C++, R, F$^\sharp$, Go}
+\resitem{\textbf{Platforms/Technologies}: .NET Core, gRPC, TensorFlow, Kubernetes, Windows, Linux}
 \end{skillsitemize}
 \end{document}
 
